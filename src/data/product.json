@@ -1,17 +1,9 @@
 [
   {
-    "proName": "Crop top",
-    "price": 7.66,
-    "desc": "Short shirt with flower printed",
-    "image":
-      "https://zandokh.com/image/cache/catalog/products/2025-04/22225031346/ZANDO01.04.202511292-cr-450x672.jpg"
-  },
-  {
-    "proName": "Tartan Maxi Skirtp",
+    "proName": "",
     "price": 18.59,
     "desc": "Short shirt with flower printed",
-    "image":
-      "https://zandokh.com/image/cache/catalog/products/2025-04/22224121174/ZD__5329-cr-450x672.jpg"
+    "image": null
   },
   {
     "proName": "Kniited Fitted Cardigan",
