@@ -2,75 +2,79 @@
 
 let cardContainer = document.querySelector("#cards");
 
-let products = [
-  {
-    proName: "Crop top",
-    price: 7.66,
-    desc: "Short shirt with flower printed",
-    image:
-      "https://zandokh.com/image/cache/catalog/products/2025-04/22225031346/ZANDO01.04.202511292-cr-450x672.jpg",
-  },
-  {
-    proName: "Tartan Maxi Skirtp",
-    price: 18.59,
-    desc: "Short shirt with flower printed",
-    image:
-      "https://zandokh.com/image/cache/catalog/products/2025-04/22224121174/ZD__5329-cr-450x672.jpg",
-  },
-  {
-    proName: "Kniited Fitted Cardigan",
-    price: 20.95,
-    desc: "Short shirt with flower printed",
-    image:
-      "https://zandokh.com/image/cache/catalog/products/2025-03/22225011181/ZANDO9936-cr-450x672.jpg",
-  },
-  {
-    proName: "Gathering Midi Dress",
-    price: 20.95,
-    desc: "Short shirt with flower printed",
-    image:
-      "https://zandokh.com/image/cache/catalog/products/2025-01/22225011172/ZANDO270320259290-cr-450x672.jpg",
-  },
-  {
-    proName: "Midi Dress",
-    price: 20.95,
-    desc: "Short shirt with flower printed",
-    image:
-      "https://zandokh.com/image/cache/catalog/products/2025-01/22224111003/IMG_0124-cr-450x672.jpg",
-  },
-  {
-    proName: "Crop top",
-    price: 7.66,
-    desc: "Short shirt with flower printed",
-    image:
-      "https://zandokh.com/image/cache/catalog/products/2025-04/22225031346/ZANDO01.04.202511292-cr-450x672.jpg",
-  },
-  {
-    proName: "Tartan Maxi Skirtp",
-    price: 18.59,
-    desc: "Short shirt with flower printed",
-    image:
-      "https://zandokh.com/image/cache/catalog/products/2025-04/22224121174/ZD__5329-cr-450x672.jpg",
-  },
-  {
-    proName: "Kniited Fitted Cardigan",
-    price: 20.95,
-    desc: "Short shirt with flower printed",
-    image:
-      "https://zandokh.com/image/cache/catalog/products/2025-03/22225011181/ZANDO9936-cr-450x672.jpg",
-  },
-  {
-    proName: "Cropped Fit T-Shirt With Print",
-    price: 13.59,
-    desc: "Short shirt with flower printed",
-    image:
-      "https://zandokh.com/image/catalog/products/2025-04/22225031205/ZANDO2204202516902.jpg",
-  },
-];
+// let products = [
+//   {
+//     proName: "Crop top",
+//     price: 7.66,
+//     desc: "Short shirt with flower printed",
+//     image:
+//       "https://zandokh.com/image/cache/catalog/products/2025-04/22225031346/ZANDO01.04.202511292-cr-450x672.jpg",
+//   },
+//   {
+//     proName: "Tartan Maxi Skirtp",
+//     price: 18.59,
+//     desc: "Short shirt with flower printed",
+//     image:
+//       "https://zandokh.com/image/cache/catalog/products/2025-04/22224121174/ZD__5329-cr-450x672.jpg",
+//   },
+//   {
+//     proName: "Kniited Fitted Cardigan",
+//     price: 20.95,
+//     desc: "Short shirt with flower printed",
+//     image:
+//       "https://zandokh.com/image/cache/catalog/products/2025-03/22225011181/ZANDO9936-cr-450x672.jpg",
+//   },
+//   {
+//     proName: "Gathering Midi Dress",
+//     price: 20.95,
+//     desc: "Short shirt with flower printed",
+//     image:
+//       "https://zandokh.com/image/cache/catalog/products/2025-01/22225011172/ZANDO270320259290-cr-450x672.jpg",
+//   },
+//   {
+//     proName: "Midi Dress",
+//     price: 20.95,
+//     desc: "Short shirt with flower printed",
+//     image:
+//       "https://zandokh.com/image/cache/catalog/products/2025-01/22224111003/IMG_0124-cr-450x672.jpg",
+//   },
+//   {
+//     proName: "Crop top",
+//     price: 7.66,
+//     desc: "Short shirt with flower printed",
+//     image:
+//       "https://zandokh.com/image/cache/catalog/products/2025-04/22225031346/ZANDO01.04.202511292-cr-450x672.jpg",
+//   },
+//   {
+//     proName: "Tartan Maxi Skirtp",
+//     price: 18.59,
+//     desc: "Short shirt with flower printed",
+//     image:
+//       "https://zandokh.com/image/cache/catalog/products/2025-04/22224121174/ZD__5329-cr-450x672.jpg",
+//   },
+//   {
+//     proName: "Kniited Fitted Cardigan",
+//     price: 20.95,
+//     desc: "Short shirt with flower printed",
+//     image:
+//       "https://zandokh.com/image/cache/catalog/products/2025-03/22225011181/ZANDO9936-cr-450x672.jpg",
+//   },
+//   {
+//     proName: "Cropped Fit T-Shirt With Print",
+//     price: 13.59,
+//     desc: "Short shirt with flower printed",
+//     image:
+//       "https://zandokh.com/image/catalog/products/2025-04/22225031205/ZANDO2204202516902.jpg",
+//   },
+// ];
 
-cardContainer.innerHTML = products
-  .map(
-    (product) => `
+fetch("./src/data/product.json")
+  .then((response) => response.json())
+  .then(
+    (data) =>
+      (cardContainer.innerHTML = data
+        .map(
+          (product) => `
        <div
             class="w-full bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
           >
@@ -165,5 +169,7 @@ cardContainer.innerHTML = products
             </div>
           </div>
 `
+        )
+        .join(""))
   )
-  .join("");
+  .catch((error) => console.log(error));
